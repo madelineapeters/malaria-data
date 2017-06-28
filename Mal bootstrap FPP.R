@@ -1,8 +1,4 @@
 #select time points to compare
-w<-c(4,8) #columns with R1.48 and R2.48
-x<-c(2,6) #colums with R1.0 and R2.0
-y<-c(2,4) #colums with R1.0 and R1.48
-z<-c(6,8) #colums with R2.0 and R2.48
 
 #bootstrap to find false positive rate for time 0
 bootobject.2<-replicate(10000, {
@@ -80,7 +76,7 @@ boot.upper<-length(bootobject.1[bootobject.1 < med.T0])
 boot.df[hap,9]<-boot.upper
 boot.CI<-c(boot.lower, boot.upper)
 boot.CI<-min(boot.CI)
-CI.T0<-100-(boot.CI/10000)
+CI.T0<-1-(boot.CI/10000)
 
 
 #bootstrap to find false positive rate for time 48
@@ -159,6 +155,6 @@ boot.upper<-length(bootobject.1[bootobject.1 < med.T48])
 boot.df[hap,12]<-boot.upper
 boot.CI<-c(boot.lower, boot.upper)
 boot.CI<-min(boot.CI)
-CI.T48<-100-(boot.CI/10000)
+CI.T48<-1-(boot.CI/10000)
 
 CI<-max(CI.T0, CI.T48)

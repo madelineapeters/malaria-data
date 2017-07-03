@@ -1,4 +1,3 @@
-#select time points to compare
 
 #bootstrap to find CI for time 0
 bootobject.2<-replicate(1000, {
@@ -77,7 +76,7 @@ boot.upper<-(length(bootobject.1[(bootobject.1) > (med.T0)]))
 boot.df[hap,9]<-boot.upper
 boot.CI<-c(boot.lower, boot.upper)
 boot.CI<-min(boot.CI)
-CI.T0<-1-(boot.CI/1000)
+if ((mal_sub[hap,2] == 0) & (mal_sub[hap,6] == 0)) {CI.T0 <- 0.95} else {CI.T0<-1-(boot.CI/1000)} #end if/else for CI.T0
 
 
 #bootstrap to find CI for time 48
@@ -157,6 +156,6 @@ boot.upper<-(length(bootobject.1[(bootobject.1) > (med.T48)]))
 boot.df[hap,12]<-boot.upper
 boot.CI<-c(boot.lower, boot.upper)
 boot.CI<-min(boot.CI)
-CI.T48<-1-(boot.CI/1000)
+if ((mal_sub[hap,4] == 0) & (mal_sub[hap,8] == 0)) {CI.T48 <- 0.95} else {CI.T48<-1-(boot.CI/1000)} #end if/else for CI.T0
 
 CI<-max(CI.T0, CI.T48)

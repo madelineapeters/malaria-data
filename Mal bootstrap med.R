@@ -38,12 +38,12 @@ bootobject.1<-replicate(1000, {
 )
 
 bootobject.1<-sort(bootobject.1, decreasing=FALSE)
-boot.lower<-nth(bootobject.1, (1000*(1-CI)))
+boot.lower<-nth(bootobject.1, (1000*(1-CI)+1))
 boot.df[hap,3]<-boot.lower
 boot.upper<-nth(bootobject.1, (1000*CI))
 boot.df[hap,4]<-boot.upper
 
-boot.lower.2<-nth(bootobject.1, (1000*(1-CI.2)))
+boot.lower.2<-nth(bootobject.1, (1000*(1-CI.2)+1))
 boot.upper.2<-nth(bootobject.1, (1000*CI.2))
 
 bootobject.2<-replicate(1000, {
@@ -130,12 +130,12 @@ bootobject.1<-replicate(1000, {
 }
 )
 bootobject.1<-sort(bootobject.1, decreasing=FALSE)
-boot.lower<-nth(bootobject.1, (1000*(1-CI)))
+boot.lower<-nth(bootobject.1, (1000*(1-CI)+1))
 boot.df[hap,6]<-boot.lower
 boot.upper<-nth(bootobject.1, (1000*CI))
 boot.df[hap,7]<-boot.upper
 
-boot.lower.2<-nth(bootobject.1, (1000*(1-CI.2)))
+boot.lower.2<-nth(bootobject.1, (1000*(1-CI.2)+1))
 boot.upper.2<-nth(bootobject.1, (1000*CI.2))
 
 bootobject.2<-replicate(1000, {
